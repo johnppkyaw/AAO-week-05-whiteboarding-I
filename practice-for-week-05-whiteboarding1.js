@@ -1,10 +1,36 @@
 const log = console.log;
 
+//threeUniqueVowels
+const threeUniqueVowels = string => {
+  let uniqueCount = 0;
+  const vowelObj = {
+    'a' : 0,
+    'e' : 0,
+    'i' : 0,
+    'o' : 0,
+    'u' : 0
+  }
+  for (let char of string) {
+    if (vowelObj.hasOwnProperty(char) && vowelObj[char] === 0) {
+      uniqueCount++;
+      vowelObj[char]++;
+    }
+  }
+  return uniqueCount >= 3;
+}
+//Time complexity: O(N)
+//Space complexity: O(1)
+log('threeUniqueVowels test cases:')
+log(threeUniqueVowels('delicious'));  // => true
+log(threeUniqueVowels('the bootcamp'))  // => true
+log(threeUniqueVowels('bootcamp'));  // => false
+log(threeUniqueVowels('dog'));  // => false
+log(threeUniqueVowels('go home'));  // => false
+log('\n');
 
 
 //vowelShift
 const vowelShift = string => {
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
   let resultStr = '';
   const vowelMap = {
     'a' : 'e',

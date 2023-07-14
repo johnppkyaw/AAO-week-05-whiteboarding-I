@@ -2,23 +2,13 @@ const log = console.log;
 
 
 //evenSumArray
-const evenSumArray = array => {
-  let resultArr = [];
-  for (const element of array) {
-    resultArr.push(evenSum(element));
-  }
-  return resultArr;
-}
+const evenSumArray = array => array.map(element => evenSum(element));
 //evenSumArray helper function
 function evenSum(num) {
-  let sum = 0;
-  while(num > 0) {
-    if (num % 2 === 0) sum += num;
-    num--;
-  }
-  return sum;
+  const halfed = Math.floor(num / 2);
+  return halfed * (halfed + 1);
 }
-//Time complexity: O(N x M)
+//Time complexity: O(N)
 //Space complexity: O(N)
 log('evenSumArray test cases:')
 log(evenSumArray([6, 7, 5])) // => [ 12, 12, 6 ]

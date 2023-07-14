@@ -1,5 +1,24 @@
 const log = console.log;
 
+//splitHalfArray
+const splitHalfArray = array => {
+  const length = array.length;
+  const halfPoint = Math.floor(length/2);
+  if (length % 2 === 0) {
+    return [[...array.slice(0, halfPoint)], [...array.slice(halfPoint, length)]];
+  } else {
+    return [[...array.slice(0, halfPoint)], [...array.slice(halfPoint + 1, length)]];
+  }
+}
+//Time complexity: O(N)
+//Space complexity: O(N)
+log('splitHalfArray test cases:')
+log(splitHalfArray([1, 2, 3, 4, 5]));
+  // => [ [ 1, 2 ], [ 4, 5 ] ]
+log(splitHalfArray(['a', 'b', 'c', 'd', 'e', 'f']));
+  // => [ [ 'a', 'b', 'c' ], [ 'd', 'e', 'f' ] ]
+log('\n');
+
 //threeUniqueVowels
 const threeUniqueVowels = string => {
   let uniqueCount = 0;

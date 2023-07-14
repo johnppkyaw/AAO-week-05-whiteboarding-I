@@ -1,6 +1,57 @@
 const log = console.log;
 
 
+
+//vowelShift
+const vowelShift = string => {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let resultStr = '';
+  const vowelMap = {
+    'a' : 'e',
+    'e' : 'i',
+    'i' : 'o',
+    'o' : 'u',
+    'u' : 'a'
+  }
+  for (const char of string) {
+    if(vowelMap.hasOwnProperty(char)) {
+      resultStr += vowelMap[char];
+    } else {
+      resultStr += char;
+    }
+  }
+  return resultStr;
+}
+//Time complexity: O(N)
+//Space complexity: O(N)
+log('vowelShift test cases:')
+log(vowelShift('bootcamp'));  // => 'buutcemp'
+log(vowelShift('hello world'));  // => 'hillu wurld'
+log(vowelShift('on the hunt'));  // => 'un thi hant'
+log('\n');
+
+//hasSymmetry
+const hasSymmetry = array => {
+  let start = 0;
+  let end = array.length - 1;
+  while (end > start) {
+    if(array[start] !== array[end]) return false;
+    start++;
+    end--;
+  }
+  return true;
+}
+//Time complexity: O(N/2) or O(N); 1/2 is ignored.
+//Space complexity: O(1)
+log('hasSymmetry test cases:')
+log(hasSymmetry([1, 2, 3, 3, 2, 1])) // => true
+log(hasSymmetry([1, 2, 3, 3, 4, 1])) // => false
+log(hasSymmetry(['cat', 'dog', 'bird', 'dog', 'cat'])) // => true
+log(hasSymmetry(['cat', 'dog', 'bird', 'bird', 'cat'])) // => false
+log('\n');
+
+
+
 //evenSumArray
 const evenSumArray = array => array.map(element => evenSum(element));
 //evenSumArray helper function
@@ -14,6 +65,7 @@ log('evenSumArray test cases:')
 log(evenSumArray([6, 7, 5])) // => [ 12, 12, 6 ]
 log(evenSumArray([2, 8, 3, 5])) // => [ 2, 20, 2, 6 ]
 log('\n');
+
 
 
 //numsToWords
@@ -58,7 +110,6 @@ const moreDotLessDash = string => {
 }
 //Time Complexity = O(N) based on # of char
 //Space Complexity = O(1)
-
 log('moreDotLessDash test cases:')
 log(moreDotLessDash('2-D arrays are fun. I think.'));  // => true
 log(moreDotLessDash('.-.-.'));  // => true

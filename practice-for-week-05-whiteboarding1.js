@@ -1,5 +1,32 @@
 const log = console.log;
 
+//commonFactors
+const commonFactors = (num1, num2) => {
+  const resultArr = [];
+  let start = 1;
+  let end;
+  if (num1 <= num2) {
+    end = num1;
+  } else {
+    end = num2;
+  }
+  while (start <= end) {
+    if (num1 % start === 0 && num2 % start === 0) {
+      resultArr.push(start);
+    }
+    start++;
+  }
+  return resultArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('commonFactors test cases:')
+log(commonFactors(12, 50));  // => [ 1, 2 ]
+log(commonFactors(6, 24));  // => [ 1, 2, 3, 6 ]
+log(commonFactors(11, 22));  // => [ 1, 11 ]
+log(commonFactors(45, 60));  // => [ 1, 3, 5, 15 ]
+log('\n');
+
 //splitHalfArray
 const splitHalfArray = array => {
   const length = array.length;

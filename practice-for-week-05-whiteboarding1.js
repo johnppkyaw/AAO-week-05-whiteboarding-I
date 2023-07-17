@@ -1,5 +1,23 @@
 const log = console.log;
 
+//countAdjacentSums
+const countAdjacentSums = (arr, n) => {
+  let count = 0;
+  const adjacents = {}
+  for (let i = 0; i < arr.length; i++) {
+    if (adjacents[n - arr[i]]) count++
+    adjacents[arr[i]] = 1;
+  }
+  return count;
+}
+//Time: O(N)
+//Space: O(1)
+log('countAdjacentSums test cases:')
+log(countAdjacentSums([1, 5, 1], 6)) // => 2
+log(countAdjacentSums([7, 2, 4, 6], 7)) // => 0
+log(countAdjacentSums([6, 7, 11, 2, 5, 10, 3], 13)) // => 3
+log('\n');
+
 //signFlipCount
 const signFlipCount = (arr) => {
   let count = 0;

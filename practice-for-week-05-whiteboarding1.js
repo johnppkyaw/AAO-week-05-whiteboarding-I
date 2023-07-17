@@ -1,5 +1,25 @@
 const log = console.log;
 
+
+
+//powerSequence
+const powerSequence = (num1, num2) => {
+  const resultArr = [];
+  let start = 1;
+  while (start <= num2) {
+    resultArr.push(num1 ** start);
+    start++;
+  }
+  return resultArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('collapseString test cases:')
+log(powerSequence(3, 4));  // => [ 3, 9, 27, 81 ]
+log(powerSequence(2, 6));  // => [ 2, 4, 8, 16, 32, 64 ]
+log(powerSequence(8, 3));  // => [ 8, 64, 512 ]
+log('\n');
+
 //collapseString
 const collapseString = str => {
   let collapsed = ''
@@ -10,8 +30,8 @@ const collapseString = str => {
   }
   return collapsed;
 }
-//Time: O(N)
-//Space: O(M)
+//Time: O(N) - length of the input string
+//Space: O(M) - length of the resulting collapsed string
 log('collapseString test cases:')
 log(collapseString('apple')); // => 'aple'
 log(collapseString('AAAaalviiiiin!!!')); // => 'Aalvin!'

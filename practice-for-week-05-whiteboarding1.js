@@ -1,5 +1,23 @@
 const log = console.log;
 
+//collapseString
+const collapseString = str => {
+  let collapsed = ''
+  for (let i = 0; i < str.length; i++) {
+    if (i === 0 || str[i] !== str[i-1]) {
+      collapsed += str[i]
+    }
+  }
+  return collapsed;
+}
+//Time: O(N)
+//Space: O(M)
+log('collapseString test cases:')
+log(collapseString('apple')); // => 'aple'
+log(collapseString('AAAaalviiiiin!!!')); // => 'Aalvin!'
+log(collapseString('hello   app academy')); // => 'helo ap academy'
+log('\n');
+
 //oddWordsOut
 const oddWordsOut = str => {
   const words = str.split(' ');

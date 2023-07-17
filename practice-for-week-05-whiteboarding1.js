@@ -1,15 +1,49 @@
 const log = console.log;
 
+//oddWordsOut
+const oddWordsOut = str => {
+  const words = str.split(' ');
+  const evens = words.filter(word => word.length % 2 === 0)
+  return evens.join(' ');
+}
+//Time: O(N)
+//Space: O(N)
+log('oddWordsOut test cases:')
+console.log(oddWordsOut('go to the store and buy milk'));  // => 'go to milk'
+console.log(oddWordsOut('what is the answer'));  // => 'what is answer'
+log('\n');
+
+//mindPsaAndQs
+const mindPsAndQs = str => {
+  let longestStr = 0;
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if(str[i] === 'P' || str[i] === 'Q') {
+      count++;
+    } else {
+      count = 0;
+    }
+    if (count > longestStr) {
+      longestStr = count;
+    }
+    }
+  return longestStr;
+}
+
+//Time: O(N)
+//Space: O(1)
+log('mindPsaAndQs test cases:')
+log(mindPsAndQs('BOOTCAMP'));  // => 1
+log(mindPsAndQs('APCDQQPPC'));  // => 4
+log(mindPsAndQs('PQPQ'));  // => 4
+log(mindPsAndQs('PPPXQPPPQ'));  // => 5
+log('\n');
+
 //commonFactors
 const commonFactors = (num1, num2) => {
   const resultArr = [];
   let start = 1;
-  let end;
-  if (num1 <= num2) {
-    end = num1;
-  } else {
-    end = num2;
-  }
+  const end = Math.min(num1, num2);
   while (start <= end) {
     if (num1 % start === 0 && num2 % start === 0) {
       resultArr.push(start);
@@ -26,6 +60,31 @@ log(commonFactors(6, 24));  // => [ 1, 2, 3, 6 ]
 log(commonFactors(11, 22));  // => [ 1, 11 ]
 log(commonFactors(45, 60));  // => [ 1, 3, 5, 15 ]
 log('\n');
+
+
+
+//commonPrimeFactors
+const commonPrimeFactors = (num1, num2) => {
+  const resultArr = commonFactors(num1, num2);
+  return resultArr.filter(num => isPrime(num));
+}
+function isPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+//Time: O(N)
+//Space: O(N)
+log('commonPrimeFactors test cases:')
+log(commonPrimeFactors(12, 50));  // => [ 2 ]
+log(commonPrimeFactors(6, 24));  // => [ 2, 3 ]
+log(commonPrimeFactors(11,22));  // => [ 11 ]
+log(commonPrimeFactors(45, 60));  // => [ 3, 5 ]
+log('\n');
+
+
 
 //splitHalfArray
 const splitHalfArray = array => {

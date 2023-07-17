@@ -1,6 +1,24 @@
 const log = console.log;
 
-
+//signFlipCount
+const signFlipCount = (arr) => {
+  let count = 0;
+  arr.forEach((number, index) => {
+    if(index !== 0 && ((arr[index] > 0 && arr[index - 1] < 0) || (arr[index - 1] > 0 && arr[index] < 0))) {
+      count++
+    }
+  })
+  return count;
+}
+//Time: O(N)
+//Space: O(1)
+log('signFlipCount test cases:')
+log(signFlipCount([5, 6, 10, 3])); // => 0
+log(signFlipCount([-12, 0, -3, -5])); // => 0
+log(signFlipCount([-12, 10, -3, -5])); // => 2
+log(signFlipCount([1, -2, -3, -4])); // => 1
+log(signFlipCount([-1, 11.3, -3, 100])); // => 3
+log('\n');
 
 //powerSequence
 const powerSequence = (num1, num2) => {
@@ -14,7 +32,7 @@ const powerSequence = (num1, num2) => {
 }
 //Time: O(N)
 //Space: O(N)
-log('collapseString test cases:')
+log('powerSequence test cases:')
 log(powerSequence(3, 4));  // => [ 3, 9, 27, 81 ]
 log(powerSequence(2, 6));  // => [ 2, 4, 8, 16, 32, 64 ]
 log(powerSequence(8, 3));  // => [ 8, 64, 512 ]

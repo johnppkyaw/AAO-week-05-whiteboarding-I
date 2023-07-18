@@ -1,5 +1,28 @@
 const log = console.log;
 
+//countRepeats
+const countRepeats = str => {
+  let count = 0;
+  const letters = {}
+  for (let i = 0; i < str.length; i++) {
+    if(letters.hasOwnProperty(str[i])) letters[str[i]]++;
+    else letters[str[i]] = 1;
+  }
+  for (const key in letters) {
+    if (letters[key] > 1) count++
+  }
+  return count;
+}
+//Time: O(N) - length of input string (for loop)
+//Space: O(M) - number of unique characters in input string stored in letters object.
+log('countRepeats test cases:')
+log(countRepeats('calvin')); // => 0
+log(countRepeats('caaaalvin')); // => 1
+log(countRepeats('pops')); // => 1
+log(countRepeats('mississippi')); // => 3
+log(countRepeats('hellobootcampprep')); // => 4
+log('\n');
+
 //pairsToString
 const pairsToString = arr => {
   let resultArr = [];
@@ -14,7 +37,7 @@ const pairsToString = arr => {
 }
 //Time: O(N)//pushing into the array instead of concatenating to string is more efficient.
 //Space: O(N)
-log('countAdjacentSums test cases:')
+log('pairsToString test cases:')
 const array1 = [
   ['a', 3],
   ['b', 1],

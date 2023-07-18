@@ -1,5 +1,23 @@
 const log = console.log;
 
+//variableNameify
+const variableNameify = array => {
+  const convertedArr = [];
+  for (let i = 0; i < array.length; i++) {
+    if (i === 0) convertedArr.push(array[i].toLowerCase())
+    else convertedArr.push(array[i][0].toUpperCase() + array[i].slice(1).toLowerCase())
+  }
+  return convertedArr.join('');
+}
+//Time: O(N * M) - length of the input array and the average length of words.
+//Space: O(N)
+log('variableNameify test cases:')
+log(variableNameify(['is', 'prime'])) // => 'isPrime'
+log(variableNameify(['remove', 'last', 'vowel'])) // => 'removeLastVowel'
+log(variableNameify(['MaX', 'VALUE'])) // => 'maxValue'
+log('\n');
+
+
 //threeIncreasing
 const threeIncreasing = array => {
   for (let i = 0; i < array.length - 3; i++) {

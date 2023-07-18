@@ -1,5 +1,66 @@
 const log = console.log;
 
+//valueCounter
+const valueCounter =
+
+
+//elementCount
+const elementCount = arr => {
+  const countObj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (countObj.hasOwnProperty(arr[i])) {
+      countObj[arr[i]]++;
+    } else {
+      countObj[arr[i]] = 1;
+    }
+  }
+  return countObj;
+}
+
+//Time: O(N)
+//Space: O(N)
+log('elementCount test cases:')
+log(elementCount(["a", "a", "b", "b"])); // => { "a" : 2, "b" : 2 }
+log(elementCount(['c', 'a', 'c', 'a', 'b'])); // => { "c": 2, "a": 2, "b": 1 }
+log('\n');
+
+
+
+//nextTwoPrimes
+const nextTwoPrimes = num => {
+  const alreadyCalculated = {};
+  if (alreadyCalculated.hasOwnProperty(num)) return alreadyCalculated[num];
+  const twoPrimes = [];
+  let nextNum = num + 1;
+  while (twoPrimes.length < 2) {
+    if(isPrime(nextNum)) {
+      twoPrimes.push(nextNum)
+    }
+    nextNum++;
+  }
+  alreadyCalculated[num] = twoPrimes
+  return alreadyCalculated[num];
+
+  function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+}
+//Time: O(N)
+//Space: O(2)
+log('nextTwoPrimes test cases:')
+log(nextTwoPrimes(2));  // => [ 3, 5 ]
+log(nextTwoPrimes(3));  // => [ 5, 7 ]
+log(nextTwoPrimes(7));  // => [ 11, 13 ]
+log(nextTwoPrimes(8));  // => [ 11, 13 ]
+log(nextTwoPrimes(20));  // => [ 23, 29 ]
+log(nextTwoPrimes(97));  // => [ 101, 103 ]
+log('\n');
+
+
 //pairProduct
 const pairProduct = (arr, num) => {
   const numStorage = {};

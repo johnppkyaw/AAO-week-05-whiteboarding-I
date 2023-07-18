@@ -1,4 +1,21 @@
 const log = console.log;
+
+//threeIncreasing
+const threeIncreasing = array => {
+  for (let i = 0; i < array.length - 3; i++) {
+    if (array[i] === array[i + 1] - 1 && array[i + 1] === array[i + 2] - 1) {
+      return true;
+    }
+  }
+  return false;}
+
+//Time: O(N) - length of the array
+//Space: O(1)
+log('threeIncreasing test cases:')
+log(threeIncreasing([3, 2, 11, 12, 13, 2, 4]));  // => true
+log(threeIncreasing([7, 2, 4, 5, 2, 1, 6]));  // => false
+log('\n');
+
 //reverse2D
 const reverse2D = array => {
   let reversedFlatArr = []

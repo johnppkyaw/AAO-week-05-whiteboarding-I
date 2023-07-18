@@ -1,5 +1,57 @@
 const log = console.log;
 
+//pairProduct
+const pairProduct = (arr, num) => {
+  const numStorage = {};
+  const pairIndex = [];
+  let index = 0
+  while (index < arr.length) {
+    const complementNum = num / arr[index]
+    if (numStorage.hasOwnProperty(complementNum)) {
+      pairIndex.push([numStorage[complementNum], index])
+      delete numStorage[complementNum];
+    } else {
+      numStorage[arr[index]] = index;
+    }
+    index++;
+  }
+  return pairIndex;
+}
+//Time: O(N)
+//Space: O(N)
+log('pairProduct test cases:')
+log(pairProduct([1, 2, 3, 4, 5], 4)); // => [ [ 0, 3 ] ]
+log(pairProduct([1, 2, 3, 4, 5], 8)); // => [ [ 1, 3 ] ]
+log(pairProduct([1, 2, 3, 12, 8], 24)); // => [ [ 1, 3 ], [ 2, 4 ] ]
+log('\n');
+
+
+
+//twoDimensionalSize
+const twoDimensionalSize = arr => {
+  let count = 0;
+  arr.forEach(row => count += row.length)
+  return count;
+}
+//Time: O(N)
+//Space: O(1)
+log('twoDimensionalSize test cases:')
+const arrA = [
+  [1, 2, 3],
+  [4, 5],
+  [6, 7, 8, 9]
+];
+log(twoDimensionalSize(arrA));  // => 9
+
+const arrB = [
+  ['a'],
+  ['b', 'c', 'd', 'e']
+];
+log(twoDimensionalSize(arrB));  // => 5
+log('\n');
+
+
+
 //longWordCount
 const longWordCount = str => {
   let longerThanSeven = 0

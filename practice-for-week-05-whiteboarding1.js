@@ -1,5 +1,36 @@
 const log = console.log;
 
+//pairsToString
+const pairsToString = arr => {
+  let resultArr = [];
+  arr.forEach((pair) => {
+    let localCount = pair[1]
+    while(localCount > 0) {
+      resultArr.push(pair[0]);
+      localCount--;
+    }
+  })
+  return resultArr.join('');
+}
+//Time: O(N)//pushing into the array instead of concatenating to string is more efficient.
+//Space: O(N)
+log('countAdjacentSums test cases:')
+const array1 = [
+  ['a', 3],
+  ['b', 1],
+  ['c', 2]
+];
+log(pairsToString(array1));  // => 'aaabcc'
+
+const array2 = [
+  ['f', 1],
+  ['o', 2],
+  ['d', 1],
+  ['!', 1]
+];
+log(pairsToString(array2));  // => 'food!'
+log('\n');
+
 //countAdjacentSums
 const countAdjacentSums = (arr, n) => {
   let count = 0;

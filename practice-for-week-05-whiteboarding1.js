@@ -1,5 +1,43 @@
 const log = console.log;
 
+//objectToString
+const objectToString = obj => {
+  const resultArr = []
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) resultArr.push(key.repeat(obj[key]));
+  }
+  return resultArr.join('');
+}
+
+//Time: O(N)
+//Space: O(N)
+log('objectToString test cases:')
+log(objectToString({ a : 2, b: 4, c: 1 })) // => 'aabbbbc'
+log(objectToString({ b: 1, o: 2, t: 1 })) // => 'boot'
+log('\n');
+
+
+//shortestWord
+const shortestWord = str => {
+  const strArr = str.split(' ');
+  let shortest = strArr[0].length;
+  let shortestWord = strArr[0]
+  strArr.forEach(word => {
+    if (word.length < shortest) {
+      shortestWord = word;
+      shortest = word.length;
+    }
+  })
+  return shortestWord;
+}
+//Time: O(N)
+//Space: O(1)
+log('shortestWord test cases:')
+log(shortestWord('app academy is cool')) // => 'is'
+log(shortestWord('programming bootcamp')) // => 'bootcamp'
+log('\n');
+
+
 //greatestCommonFactor
 const greatestCommonFactor = (num1, num2) => {
   let smallerNum;

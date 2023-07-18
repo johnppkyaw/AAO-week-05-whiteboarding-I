@@ -1,5 +1,24 @@
 const log = console.log;
 
+//reverb
+const reverb = str => {
+  const vowels = 'aeiouAEIOU';
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (vowels.includes(str[i])) {
+      return str + str.slice(i);
+    }
+  }
+  return str;
+}
+//Time: O(N) - length of input string during for-loop
+//Space: O(M) - length of the repeated portion of the string stored
+log('reverb test cases:')
+log(reverb('running'));  // => 'runninging'
+log(reverb('wild'));  // => 'wildild'
+log(reverb('debugged'));  // => 'debuggeded'
+log(reverb('my'));  // => 'my'
+log('\n');
+
 //countRepeats
 const countRepeats = str => {
   let count = 0;

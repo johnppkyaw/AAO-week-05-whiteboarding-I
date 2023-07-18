@@ -1,5 +1,25 @@
 const log = console.log;
 
+//longWordCount
+const longWordCount = str => {
+  let longerThanSeven = 0
+  const strArr = str.split(' ');
+  strArr.forEach(word => {
+    if (word.length > 7) longerThanSeven++;
+  })
+  return longerThanSeven;
+}
+//Time: O(N)
+//Space: O(N)
+log('longWordCount test cases:')
+log(longWordCount(""));  // => 0
+log(longWordCount("short words only"));  // => 0
+log(longWordCount("one reallylong word"));  // => 1
+log(longWordCount("two reallylong words inthisstring"));  // => 2
+log(longWordCount("allwordword longwordword wordswordword"));  // => 3
+log(longWordCount("seventy schfifty five"));  // => 1
+log('\n');
+
 //factorial
 const factorial = num => {
   factorialed = 1;

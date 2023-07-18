@@ -1,5 +1,27 @@
 const log = console.log;
 
+//lcm
+
+const lcm = (num1, num2) => {
+  return (num1 * num2) / gcd(num1, num2);
+
+  function gcd(num1, num2) {
+    while (num2 !== 0) {
+      const temp = num2;
+      num2 = num1 % num2;
+      num1 = temp;
+    }
+    return num1;
+  }
+}
+//Time: O(log min(num1, num2)) - Euclidean algorithm
+//Space: O(1)
+log('lcm test cases:')
+log(lcm(2, 3));  // => 6
+log(lcm(6, 10));  // => 30
+log(lcm(24, 26));  // => 312
+log('\n');
+
 //hipsterfyWord
 const hipsterfyWord = str => {
   const vowels = 'aeiouAEIOU'
@@ -34,7 +56,7 @@ const hipsterfy = str => {
   return words.join(' ');
 }
 
-//Time: O(N x M)
+//Time: O(N x M) - N is the number of words in the input string and M is the average length of each word.
 //Space: O(N)
 log('hipsterfy test cases:')
 log(hipsterfy("proper"));  // => "propr"
@@ -43,6 +65,8 @@ log(hipsterfy("towel flicker banana"));  // => "towl flickr banan"
 log(hipsterfy("runner anaconda"));  // => "runnr anacond"
 log(hipsterfy("turtle cheeseburger fries"));  // => "turtl cheeseburgr fris"
 log('\n');
+
+
 
 //objectToString
 const objectToString = obj => {

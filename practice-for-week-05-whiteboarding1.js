@@ -1,6 +1,46 @@
 const log = console.log;
 
-//variableNameify
+//valueConcat
+const valueConcat = (array, obj) => {
+  const resultArr = [];
+  for (let i = 0; i < array.length; i++) {
+    if(obj.hasOwnProperty(array[i])) {
+      resultArr.push(array[i]+obj[array[i]])
+    } else {
+      resultArr.push(array[i])
+    }
+  }
+  return resultArr;
+}
+//Time: O(N) - length of the array
+//Space: O(1)
+log('valueConcat test cases:')
+const arr = ['alex', 'maurice', 'meagan', 'ali'];
+const obj = { alex: 'bronca', ali: 'harris' }
+log(valueConcat(arr, obj)) // => [ 'alexbronca', 'maurice', 'meagan', 'aliharris' ]
+
+log(valueConcat(['a', 'b', 'c'], { b: 2, c: 3 })) // => [ 'a', 'b2', 'c3' ]
+log('\n');
+
+
+//threeInARow
+const threeInARow = array => {
+  for (let i = 0; i < array.length - 3; i++) {
+    if (array[i] === array[i + 1] && array[i + 1] === array[i + 2]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+//Time: O(N) - length of the array
+//Space: O(1)
+log('threeInARow test cases:')
+log(threeInARow([4, 3, 7, 7, 7, 13, 8]));  // => true;
+log(threeInARow([10, 9, 20, 33, 3, 3]));  // => false;
+log('\n');
+
+//varialog(bleNameify
 const variableNameify = array => {
   const convertedArr = [];
   for (let i = 0; i < array.length; i++) {

@@ -1,5 +1,49 @@
 const log = console.log;
 
+//hipsterfyWord
+const hipsterfyWord = str => {
+  const vowels = 'aeiouAEIOU'
+  let lastVowelIndex;
+  for (let i = str.length - 1; i > 0; i--) {
+    if(vowels.includes(str[i])) {
+      lastVowelIndex = i;
+      break;
+    }
+  }
+  if (lastVowelIndex) {
+    return str.slice(0, lastVowelIndex) + str.slice(lastVowelIndex + 1);
+  } else {
+    return str;
+  }
+}
+//Time: O(N)
+//Space: O(1)
+log('hipsterfyWord test cases:')
+log(hipsterfyWord('proper')) // => 'propr'
+log(hipsterfyWord('tonic')) // => 'tonc'
+log(hipsterfyWord('PANTHER')) // => 'PANTHR'
+log(hipsterfyWord('BACKWARDS')) // => 'BACKWRDS'
+log('\n');
+
+
+
+//hipsterfy
+const hipsterfy = str => {
+  const words = str.split(' ');
+  words.forEach((word, index) => words[index] = hipsterfyWord(words[index]));
+  return words.join(' ');
+}
+
+//Time: O(N x M)
+//Space: O(N)
+log('hipsterfy test cases:')
+log(hipsterfy("proper"));  // => "propr"
+log(hipsterfy("proper tonic panther"));  // => "propr tonc panthr"
+log(hipsterfy("towel flicker banana"));  // => "towl flickr banan"
+log(hipsterfy("runner anaconda"));  // => "runnr anacond"
+log(hipsterfy("turtle cheeseburger fries"));  // => "turtl cheeseburgr fris"
+log('\n');
+
 //objectToString
 const objectToString = obj => {
   const resultArr = []

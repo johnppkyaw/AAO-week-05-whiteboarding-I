@@ -1,5 +1,60 @@
 const log = console.log;
 
+//greatestCommonFactor
+const greatestCommonFactor = (num1, num2) => {
+  let smallerNum;
+  if (num1 > num2) smallerNum = num2
+  else smallerNum = num1;
+  while(smallerNum > 0) {
+    if (num1 % smallerNum === 0 && num2 % smallerNum === 0) {
+      return smallerNum;
+    }
+    smallerNum--;
+  }
+  return 'No factors found'
+}
+
+//Time: O(N)
+//Space: O(1)
+log('greatestCommonFactor test cases:')
+log(greatestCommonFactor(15, 25)) // => 5
+log(greatestCommonFactor(16, 24)) // => 8
+log(greatestCommonFactor(7, 11)) // => 1
+log('\n');
+
+
+
+//isPassing
+const isPassing = array => {
+  let totalScore = 0;
+  array.forEach(test => {
+    totalScore += test.score;
+  })
+  return totalScore/array.length >= 70;
+}
+//Time: O(N) - length of the array
+//Space: O(1)
+log('isPassing test cases:')
+const assessments1 = [
+  { number: 1, score: 60 },
+  { number: 2, score: 90 },
+  { number: 3, score: 80 },
+  { number: 4, score: 100 },
+  { number: 5, score: 85 }
+];
+
+log(isPassing(assessments1)) // => true
+const assessments2 = [
+  { number: 1, score: 60 },
+  { number: 2, score: 20 },
+  { number: 3, score: 45 }
+];
+
+log(isPassing(assessments2)) // => false
+log('\n');
+
+
+
 //valueConcat
 const valueConcat = (array, obj) => {
   const resultArr = [];
@@ -21,6 +76,7 @@ log(valueConcat(arr, obj)) // => [ 'alexbronca', 'maurice', 'meagan', 'aliharris
 
 log(valueConcat(['a', 'b', 'c'], { b: 2, c: 3 })) // => [ 'a', 'b2', 'c3' ]
 log('\n');
+
 
 
 //threeInARow

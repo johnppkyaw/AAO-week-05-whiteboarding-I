@@ -1,7 +1,24 @@
 const log = console.log;
 
-//lcm
+//factorial
+const factorial = num => {
+  factorialed = 1;
+  while (num >= 1) {
+    factorialed *= num
+    num--;
+  }
+  return factorialed
+}
+//Time: O(N)
+//Space: O(1)
+log('factorial test cases:')
+log(factorial(1));  // => 1
+log(factorial(4));  // => 24
+log(factorial(5));  // => 120
+log(factorial(10));  // => 3628800
+log('\n');
 
+//lcm
 const lcm = (num1, num2) => {
   return (num1 * num2) / gcd(num1, num2);
 

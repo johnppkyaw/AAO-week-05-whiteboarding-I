@@ -1,4 +1,31 @@
 const log = console.log;
+//reverse2D
+const reverse2D = array => {
+  let reversedFlatArr = []
+  for(let i = array.length - 1; i >= 0; i--) {
+    for(let j = array[i].length - 1; j >= 0; j--) {
+      reversedFlatArr.push(array[i][j]);
+    }
+  }
+  return reversedFlatArr.join('');
+}
+//Time: O(N * M) - length of input array and length of nested array.
+//Space: O(N) - length of input array
+log('reverse2D test cases:')
+const arr1 = [
+  ['a', 'b', 'c', 'd'],
+  ['e', 'f'],
+  ['g', 'h', 'i']
+];
+
+log(reverse2D(arr1)) // => 'ihgfedcba'
+const arr2 = [
+  ['Julian', 'Matt', 'Mike'],
+  ['Oscar', 'Patrick']
+];
+log(reverse2D(arr2)) // => 'PatrickOscarMikeMattJulian'
+log('\n');
+
 
 //reverb
 const reverb = str => {

@@ -1,5 +1,57 @@
 const log = console.log;
 
+//twoDiff
+const twoDiff = (array) => {
+  const resultArr = [];
+  const complements = {};
+  array.forEach((num, index) => {
+    const difference1 = Math.abs(2 - num)
+    const difference2 = Math.abs(2 + num)
+    if (complements.hasOwnProperty(difference1)) {
+      resultArr.push([complements[difference1], index])
+    } else if (complements.hasOwnProperty(difference2)) {
+      resultArr.push([complements[difference2], index])
+    }
+    complements[num] = index;
+  })
+  return resultArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('twoDiff test cases:')
+log(twoDiff([2, 3, 4, 6, 1, 7]))  // => [[0, 2], [1, 4], [2, 3]]
+log(twoDiff([0, 2, 4, 3, 5]))  // => [[0, 1], [1, 2], [3,4]]
+log(twoDiff([]))  // => []
+log('\n');
+
+//arrayDiff
+const arrayDiff = (arr1, arr2) => {
+  const unique = {};
+  const uniqueArr = [];
+  arr2.forEach(element => {
+    unique[element] = 1;
+  })
+  arr1.forEach(element => {
+    if (!unique.hasOwnProperty(element)) {
+      uniqueArr.push(element);
+    }
+  })
+  return uniqueArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('arrayDiff test cases:')
+const array1A = [1, 23, 2, 43, 3, 4]
+const array2A = [3, 23]
+log(arrayDiff(array1A, array2A))  // => [1, 2, 43 ,4]
+
+const array3A = ['a', 'ab', 'c', 'd', 'c']
+const array4A = ['d']
+log(arrayDiff(array3A, array4A))  // => ['a', 'ab', 'c', 'c']
+
+log('\n');
+
+
 //valueCounter
 const valueCounter = (obj, value) => {
   let count = 0;

@@ -1,4 +1,70 @@
 const log = console.log;
+//twoDimensionalTotal
+const twoDimensionalTotal = array => {
+  let total = 0;
+  for (let row of array) {
+    for (let num of row) {
+      total += num;
+    }
+  }
+  return total;
+}
+//Time: O(N * M)
+//Space: O(N)
+log('twoDiff test cases:')
+const arr1e = [
+  [5, 2, 5, 3],
+  [12, 13],
+];
+
+log(twoDimensionalTotal(arr1e));  // => 40
+
+const arr2e = [
+  [2],
+  [1, 9],
+  [1, 1, 1]
+]
+
+log(twoDimensionalTotal(arr2e));  // => 15
+log('\n');
+
+
+
+//countInnerElement
+const countInnerElement = array => {
+  const resultObj = {}
+  array.forEach(row => {
+    row.forEach(num => {
+      if (resultObj.hasOwnProperty(num)) {
+        resultObj[num]++
+      } else {
+        resultObj[num] = 1;
+      }
+    })
+  })
+  return resultObj;
+}
+//Time: O(N * M)
+//Space: O(N)
+log('countInnerElement test cases:')
+const arr1c = [
+  [1, 2, 4, 5],
+  [2, 7, 4],
+  [1, 4, 5, 2, 7]
+]
+
+log(countInnerElement(arr1c))  // => {1: 2, 2: 3, 4: 3, 5: 2, 7: 2}
+
+const arr2c = [
+  ['a','b','c','d'],
+  ['a','b'],
+  ['a','c','d','a']
+]
+
+log(countInnerElement(arr2c))  // => {a: 4, b: 2, c: 2, d: 2}
+log('\n');
+
+
 
 //twoDiff
 const twoDiff = (array) => {
@@ -23,6 +89,8 @@ log(twoDiff([2, 3, 4, 6, 1, 7]))  // => [[0, 2], [1, 4], [2, 3]]
 log(twoDiff([0, 2, 4, 3, 5]))  // => [[0, 1], [1, 2], [3,4]]
 log(twoDiff([]))  // => []
 log('\n');
+
+
 
 //arrayDiff
 const arrayDiff = (arr1, arr2) => {

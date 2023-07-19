@@ -1,4 +1,103 @@
 const log = console.log;
+
+//firstNPrimes
+const firstNPrimes = num => {
+  if (num === 0) return []
+  let startNum = 2;
+  const primesArr = [];
+  while (num > primesArr.length) {
+    if (isPrime(startNum)) primesArr.push(startNum)
+    startNum++;
+  }
+  return primesArr;
+
+  function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+}
+
+//Time: O(N)
+//Space: O(N)
+log('peakFinder test cases:')
+log(firstNPrimes(0));  // => []
+log(firstNPrimes(1));  // => [2]
+log(firstNPrimes(4));  // => [2, 3, 5, 7]
+log('\n');
+
+//peakFinder
+const peakFinder = arr => {
+  const resultArr = [];
+  const length = arr.length;
+  if (length === 0) return [];
+  if (length === 1) return [0];
+  if (arr[0] > arr[1]) resultArr.push(0);
+  for (let i = 1; i < length - 1; i++) {
+    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+      resultArr.push(i);
+    }
+  }
+  if (arr[length - 1] > arr[length - 2]) resultArr.push(length - 1);
+  return resultArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('peakFinder test cases:')
+log(peakFinder([1, 2, 3, 2, 1])); // => [2]
+log(peakFinder([2, 1, 2, 3, 4, 5])); // => [0, 5]
+log(peakFinder([4, 6, 9, 4, 2, -7, 2, -4, 5])); // => [2, 6, 8]
+log('\n');
+
+//divisibleByThreePairSum
+const divisibleByThreePairSum = (array) => {
+  const resultArr = [];
+  const complements = {}
+  for (let i = 0; i < array.length; i++) {
+    const remainder = array[i] % 3;
+    const complementRemainder = (3 - remainder) % 3;
+    if (complements.hasOwnProperty(complementRemainder)) {
+      complements[complementRemainder].forEach(number => {
+        resultArr.push([number, i])
+      })
+    }
+    if (!complements.hasOwnProperty(remainder)) {
+      complements[remainder] = [];
+    }
+    complements[remainder].push(i);
+  }
+  return resultArr.sort((a, b) => a[0] - b[0]);
+}
+//Time: O(N)
+//Space: O(N)
+log('divisibleByThreePairSum test cases:')
+const arr1f = divisibleByThreePairSum([1, 6, 3, 4, 2, 0]);
+log(arr1f) // => [[0, 4], [1, 2], [1, 5], [2, 5], [3, 4]]
+
+const arr2f = divisibleByThreePairSum([8, 3, 5, 9, 2]);
+log(arr2f) // => [[1, 3]]
+log('\n');
+
+
+
+//zipArray
+const zipArray = (array1, array2) => {
+  if (array1.length !== array2.length) return 'Both arrays must have the same length'
+  return array1.map((value, index) => [value, array2[index]])
+}
+//Time: O(N)
+//Space: O(N)
+log('zipArray test cases:')
+const a1 = ['a', 'b', 'c', 'd'];
+const a2 = [10, 20, 30, 40];
+
+const result1 = zipArray(a1, a2);
+log(result1); // => [ [ 'a', 10 ], [ 'b', 20 ], [ 'c', 30 ], [ 'd', 40 ] ]
+log('\n');
+
+
 //twoDimensionalTotal
 const twoDimensionalTotal = array => {
   let total = 0;
@@ -11,7 +110,7 @@ const twoDimensionalTotal = array => {
 }
 //Time: O(N * M)
 //Space: O(N)
-log('twoDiff test cases:')
+log('twoDimensionalTotal test cases:')
 const arr1e = [
   [5, 2, 5, 3],
   [12, 13],

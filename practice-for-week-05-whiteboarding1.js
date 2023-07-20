@@ -1,5 +1,34 @@
 const log = console.log;
 
+//reverseHyphenString
+const reverseHyphenString = str => {
+  return str.split('-').reverse().join('-')
+}
+//Time: O(N)
+//Space: O(N)
+log('mirrorArray test cases:')
+log(reverseHyphenString("Go-to-the-store")) // => "store-the-to-Go"
+log(reverseHyphenString("Jump,-jump-for-joy")) // => "joy-for-jump-Jump,"
+log('\n');
+
+//intersect
+const intersect = (arr1, arr2) => {
+  const storedArr1 = new Set(arr1);
+  const resultArr = [];
+  arr2.forEach(element => {
+    if (storedArr1.has(element)) {
+      resultArr.push(element)
+    }
+  })
+  return resultArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('mirrorArray test cases:')
+log(intersect(['a', 'b', 'c', 'd'], ['b', 'd', 'e'])) // => [ 'b', 'd' ]
+log(intersect(['a', 'b', 'c'], ['x', 'y', 'z'])) // => []
+log('\n');
+
 //mirrorArray
 const mirrorArray = array => {
   const copiedArr = array.slice();

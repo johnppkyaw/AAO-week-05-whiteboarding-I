@@ -1,12 +1,79 @@
 const log = console.log;
 
+//maxValue
+const maxValue = array => {
+  if (array.length === 0) return null;
+  let max = array[0];
+  array.forEach(num => {
+    if (num > max) max = num;
+   })
+  return max;
+}
+//Time: O(N)
+//Space: O(1)
+log('maxValue test cases:')
+log(maxValue([12, 6, 43, 2]));  // => 43
+log(maxValue([]));  // => null
+log(maxValue([-4, -10, 0.43]));  // => 0.43
+log('\n');
+
+
+
+//myIndexOf
+const myIndexOf = (array, target) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) return i;
+  }
+  return -1;
+}
+//Time: O(N)
+//Space: O(1)
+log('myIndexOf test cases:')
+log(myIndexOf([1,2,3,4],4)); // => 3
+log(myIndexOf([5,6,7,8],2)); // => -1
+log('\n');
+
+
+
+//factorArray
+const factorArray = (array, num) => {
+  return array.filter(number => num % number === 0);
+}
+//Time: O(N)
+//Space: O(N)
+log('factorArray test cases:')
+log(factorArray([2,3,4,5,6],20)) // => [2,4,5]
+log(factorArray([2,3,4,5,6],35)) // => [5]
+log(factorArray([10,15,20,25],5)) // => []
+log('\n');
+
+//oddRange
+const oddRange = num => {
+  const resultArr = [];
+  if (num <= 0) return resultArr;
+  let start = 1;
+  while (start <= num) {
+    if (start % 2 !== 0) resultArr.push(start);
+    start++;
+  }
+  return resultArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('oddRange test cases:')
+log(oddRange(13));  // => [ 1, 3, 5, 7, 9, 11, 13 ]
+log(oddRange(6));  // => [ 1, 3, 5 ]
+log('\n');
+
+
+
 //reverseHyphenString
 const reverseHyphenString = str => {
   return str.split('-').reverse().join('-')
 }
 //Time: O(N)
 //Space: O(N)
-log('mirrorArray test cases:')
+log('reverseHyphenString test cases:')
 log(reverseHyphenString("Go-to-the-store")) // => "store-the-to-Go"
 log(reverseHyphenString("Jump,-jump-for-joy")) // => "joy-for-jump-Jump,"
 log('\n');
@@ -24,10 +91,12 @@ const intersect = (arr1, arr2) => {
 }
 //Time: O(N)
 //Space: O(N)
-log('mirrorArray test cases:')
+log('intersect test cases:')
 log(intersect(['a', 'b', 'c', 'd'], ['b', 'd', 'e'])) // => [ 'b', 'd' ]
 log(intersect(['a', 'b', 'c'], ['x', 'y', 'z'])) // => []
 log('\n');
+
+
 
 //mirrorArray
 const mirrorArray = array => {
@@ -43,6 +112,8 @@ log(mirrorArray([1,2,3]));
 log(mirrorArray(['a', 'b', 'c', 'd']));
   // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
 log('\n');
+
+
 
 //abbreviate
 const abbreviate = str => {
@@ -64,6 +135,8 @@ log(abbreviate('hello world')); // => 'hll wrld'
 log(abbreviate('how are you')); // => 'how are you'
 log('\n');
 
+
+
 //adults
 const adults = arr => {
   const resultArr = [];
@@ -83,6 +156,8 @@ const ppl1a = [
 ];
 log(adults(ppl1a)); // => [ 'John', 'Jane' ]
 log('\n');
+
+
 
 //countScores
 const countScores = arr => {
@@ -124,6 +199,7 @@ log(countScores(peeps)); // => { Anthony: 4, Fred: 4, Winnie: 6 }
 log('\n');
 
 
+
 //firstNPrimes
 const firstNPrimes = num => {
   if (num === 0) return []
@@ -151,6 +227,8 @@ log(firstNPrimes(1));  // => [2]
 log(firstNPrimes(4));  // => [2, 3, 5, 7]
 log('\n');
 
+
+
 //peakFinder
 const peakFinder = arr => {
   const resultArr = [];
@@ -173,6 +251,8 @@ log(peakFinder([1, 2, 3, 2, 1])); // => [2]
 log(peakFinder([2, 1, 2, 3, 4, 5])); // => [0, 5]
 log(peakFinder([4, 6, 9, 4, 2, -7, 2, -4, 5])); // => [2, 6, 8]
 log('\n');
+
+
 
 //divisibleByThreePairSum
 const divisibleByThreePairSum = (array) => {
@@ -219,6 +299,7 @@ const a2 = [10, 20, 30, 40];
 const result1 = zipArray(a1, a2);
 log(result1); // => [ [ 'a', 10 ], [ 'b', 20 ], [ 'c', 30 ], [ 'd', 40 ] ]
 log('\n');
+
 
 
 //twoDimensionalTotal

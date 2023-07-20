@@ -1,5 +1,97 @@
 const log = console.log;
 
+
+//logBetween
+const logBetween = (min, max) => {
+  if (min > max) return []
+  const resultArr = [];
+  while (min <= max) {
+    resultArr.push(min);
+    min += 1;
+  }
+  return resultArr;
+}
+//Time: O(N)
+//Space; O(N)
+log('logBetween test cases:')
+log(logBetween(-1, 2));  // => [-1, 0, 1, 2]
+log(logBetween(14, 6));  // => []
+log(logBetween(4, 6));  // => [4, 5, 6]
+log('\n');
+
+
+
+//logBetweenStepper
+const logBetweenStepper = (min, max, step) => {
+  const resultArr = [];
+  while (min <= max) {
+    resultArr.push(min);
+    min += step;
+  }
+  return resultArr;
+}
+//Time: O(N)
+//Space; O(N)
+log('logBetweenStepper test cases:')
+log(logBetweenStepper(5, 9, 1)) // => [5, 6, 7, 8, 9]
+log(logBetweenStepper(-10, 15, 5)) // => [-10, -5, 0, 5, 10, 15]
+log('\n');
+
+
+//printReverse
+const printReverse = (min, max) => {
+  const resultArr = [];
+  while (min < max) {
+    max = max - 1;
+    resultArr.push(max);
+  }
+  return resultArr;
+}
+//Time: O(N)
+//Space; O(N)
+log('printReverse test cases:')
+log(printReverse(13, 18)) // => [17, 16, 15, 14]
+log(printReverse(90, 94)) // => [93, 92, 91]
+log('\n');
+
+//fizzBuzz
+const fizzBuzz = max => {
+  const resultArr = [];
+  for (let i = 0; i < max; i++) {
+    if ((i % 3 === 0 || i % 5 === 0) && !(i % 3 === 0 && i % 5 === 0)) {
+      resultArr.push(i)
+    }
+  }
+  return resultArr;
+}
+//Time: O(N)
+//Space; O(N)
+log('fizzBuzz test cases:')
+log(fizzBuzz(20)); // => [3, 5, 6, 9, 10, 12, 18]
+log('\n');
+
+
+
+//isPrime
+const isPrimeL = num => {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+//Time: O(N)
+//Space; O(1)
+log('isPrimeL test cases:')
+log(isPrimeL(2));  // => true
+log(isPrimeL(10));  // => false
+log(isPrimeL(11));  // => true
+log(isPrimeL(9));  // => false
+log(isPrimeL(2017));  // => true
+log('\n');
+
+
+
 //maxValue
 const maxValue = array => {
   if (array.length === 0) return null;
@@ -46,6 +138,8 @@ log(factorArray([2,3,4,5,6],20)) // => [2,4,5]
 log(factorArray([2,3,4,5,6],35)) // => [5]
 log(factorArray([10,15,20,25],5)) // => []
 log('\n');
+
+
 
 //oddRange
 const oddRange = num => {

@@ -1,5 +1,40 @@
 const log = console.log;
 
+//mirrorArray
+const mirrorArray = array => {
+  const copiedArr = array.slice();
+  const mirrored = array.slice().reverse();
+  return copiedArr.concat(mirrored)
+}
+//Time: O(N)
+//Space: O(N)
+log('mirrorArray test cases:')
+log(mirrorArray([1,2,3]));
+  // => [ 1, 2, 3, 3, 2, 1 ]
+log(mirrorArray(['a', 'b', 'c', 'd']));
+  // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
+log('\n');
+
+//abbreviate
+const abbreviate = str => {
+  const strArr = str.split(' ');
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].length > 4) {
+      //regular expression
+      strArr[i] = strArr[i].replace(/[aeiouAEIOU]/gi, '')
+    }
+  }
+  return strArr.join(' ');
+}
+//Time: O(N * M) - N is the number of words in the input string and M is the average length of the words
+//Space: O(N)
+log('abbreviate test cases:')
+log(abbreviate('the bootcamp is fun')); // => 'the btcmp is fun'
+log(abbreviate('programming is fantastic')); // => 'prgrmmng is fntstc'
+log(abbreviate('hello world')); // => 'hll wrld'
+log(abbreviate('how are you')); // => 'how are you'
+log('\n');
+
 //adults
 const adults = arr => {
   const resultArr = [];

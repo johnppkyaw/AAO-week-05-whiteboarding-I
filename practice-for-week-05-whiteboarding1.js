@@ -1,5 +1,65 @@
 const log = console.log;
 
+//adults
+const adults = arr => {
+  const resultArr = [];
+  arr.forEach(person => {
+    if (person.age >= 18) resultArr.push(person.name)
+  })
+  return resultArr;
+}
+//Time: O(N)
+//Space: O(N)
+log('adults test cases:')
+const ppl1a = [
+  {name: 'John', age: 20},
+  {name: 'Jim', age: 13},
+  {name: 'Jane', age: 18},
+  {name: 'Bob', age: 7}
+];
+log(adults(ppl1a)); // => [ 'John', 'Jane' ]
+log('\n');
+
+//countScores
+const countScores = arr => {
+  const scores = {};
+  for (let i = 0; i < arr.length; i++) {
+    const name = arr[i].name;
+    const score = arr[i].score;
+    if(!scores.hasOwnProperty(name)) {
+      scores[name] = 0;
+    }
+    scores[name] += score;
+  }
+  return scores;
+}
+//Time: O(N)
+//Space: O(N)
+log('countScores test cases:')
+// Example 1:
+const ppl = [
+  { name: "Anthony", score: 10 },
+  { name: "Fred", score : 10 },
+  { name: "Anthony", score: -8 },
+  { name: "Winnie", score: 12 }
+];
+log(countScores(ppl)); // => { Anthony: 2, Fred: 10, Winnie: 12 }
+
+// Example 2
+const peeps = [
+  { name: "Anthony", score: 2 },
+  { name: "Winnie", score: 2 },
+  { name: "Fred", score: 2 },
+  { name: "Winnie", score: 2 },
+  { name: "Fred", score: 2 },
+  { name: "Anthony", score: 2 },
+  { name: "Winnie", score: 2 }
+];
+
+log(countScores(peeps)); // => { Anthony: 4, Fred: 4, Winnie: 6 }
+log('\n');
+
+
 //firstNPrimes
 const firstNPrimes = num => {
   if (num === 0) return []
@@ -19,7 +79,6 @@ const firstNPrimes = num => {
     return true;
   }
 }
-
 //Time: O(N)
 //Space: O(N)
 log('peakFinder test cases:')
